@@ -13,7 +13,6 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Color("redCustom")
                 if needsOnboarding {
                     OnboardingView()
                 } else {

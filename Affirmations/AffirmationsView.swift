@@ -19,7 +19,6 @@ struct AffirmationsView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Color("redCustom")
                 VStack {
                     ZStack {
                         Text(viewModel.affirmations[0].english ?? "")
