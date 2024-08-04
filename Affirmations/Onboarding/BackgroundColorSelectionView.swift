@@ -8,36 +8,43 @@
 import SwiftUI
 
 struct BackgroundColorSelectionView: View {
-    @State var selectedBackground: String? = nil
+    @State var selectedBackground: Color = .clear
+    @State var isSelected = false
     @State var isOpenNextView = false
+    
+    private var colorData = ColorData()
     
     var body: some View {
         NavigationStack {
             ZStack {
+                Color.blueCustom
+                    .ignoresSafeArea()
                 VStack(spacing: 50) {
                     Text("Pick a background colour you like")
                         .font(.title)
                         .multilineTextAlignment(.center)
                     VStack {
                         Button("Blue"){
-                            selectedBackground = "customBlue"
+                            selectedBackground = .blueCustom
+                            isSelected = true
                         }
-                        .buttonStyle(SelectButtonStyle(isSelected: selectedBackground == "blue"))
+                        .buttonStyle(SelectButtonStyle(isSelected: selectedBackground == .blueCustom))
                         Button("Red"){
-                            selectedBackground = "customRed"
+                            selectedBackground = .redCustom
+                            isSelected = true
                         }
-                        .buttonStyle(SelectButtonStyle(isSelected: selectedBackground == "red"))
+                        .buttonStyle(SelectButtonStyle(isSelected: selectedBackground == .redCustom))
                     }
                 }
                 .padding()
                 VStack {
                     Spacer()
                     Button("Continue") {
-                        UserDefaults.standard.set(selectedBackground, forKey: "BackgroundColor")
+                        colorData.saveColor(color: selectedBackground)
                         isOpenNextView = true
                     }
-                    .buttonStyle(OnboardingButtonStyle(isSelected: selectedBackground != nil))
-                    .disabled(selectedBackground == nil)
+                    .buttonStyle(OnboardingButtonStyle(isSelected: isSelected))
+                    .disabled(!isSelected)
                     .navigationDestination(isPresented: $isOpenNextView){
                         GenderSelectionView()
                     }

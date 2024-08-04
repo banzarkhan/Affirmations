@@ -14,6 +14,7 @@ struct CategorySelectionView: View {
     var body: some View {
         NavigationStack{
             ZStack {
+                Color.blueCustom
                 VStack(spacing: 50) {
                     Text("What area of your life would you like to improve?")
                         .font(.title)

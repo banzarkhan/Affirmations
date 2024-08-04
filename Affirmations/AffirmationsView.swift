@@ -16,9 +16,12 @@ struct AffirmationsView: View {
     
     @StateObject private var viewModel = AffirmationsStore()
     
+    private var colorData = ColorData()
+    
     var body: some View {
         NavigationStack {
             ZStack {
+                Color(colorData.loadColor())
                 VStack {
                     ZStack {
                         Text(viewModel.affirmations[0].english ?? "")

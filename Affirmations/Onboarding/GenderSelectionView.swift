@@ -14,6 +14,8 @@ struct GenderSelectionView: View {
     
     var body: some View {
         ZStack {
+            Color.blueCustom
+                .ignoresSafeArea()
             VStack(spacing: 50) {
                     Text("What gender best describes you?")
                         .font(.title)
