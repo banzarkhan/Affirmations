@@ -54,6 +54,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		546A2A5C2C5FAB01009EFA49 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				546A2A532C5F93EB009EFA49 /* PersistenceManager.swift */,
+				546A2A552C5F942C009EFA49 /* Affirmations.xcdatamodeld */,
+				546A2A582C5F94FF009EFA49 /* AffirmationsStore.swift */,
+				546A2A5A2C5F960E009EFA49 /* AffirmationsList.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
 		54EB612D2C5CF06100EF3611 = {
 			isa = PBXGroup;
 			children = (
@@ -76,11 +87,8 @@
 				54EB61392C5CF06100EF3611 /* AffirmationsApp.swift */,
 				54EB613B2C5CF06100EF3611 /* ContentView.swift */,
 				54EB61522C5D3AAB00EF3611 /* SettingsView.swift */,
-				546A2A532C5F93EB009EFA49 /* PersistenceManager.swift */,
-				546A2A552C5F942C009EFA49 /* Affirmations.xcdatamodeld */,
-				546A2A582C5F94FF009EFA49 /* AffirmationsStore.swift */,
-				546A2A5A2C5F960E009EFA49 /* AffirmationsList.swift */,
 				54EB61562C5DF52200EF3611 /* Onboarding */,
+				546A2A5C2C5FAB01009EFA49 /* Persistence */,
 				54EB61492C5D18A200EF3611 /* Helpers */,
 				54EB613D2C5CF06200EF3611 /* Assets.xcassets */,
 				54EB613F2C5CF06200EF3611 /* Preview Content */,
@@ -412,8 +420,7 @@
 				546A2A562C5F942C009EFA49 /* Affirmations.xcdatamodel */,
 			);
 			currentVersion = 546A2A562C5F942C009EFA49 /* Affirmations.xcdatamodel */;
-			name = Affirmations.xcdatamodeld;
-			path = /Users/ariunabanzarkhanova/Documents/GitHub/Affirmations/Affirmations/Affirmations.xcdatamodeld;
+			path = Affirmations.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
