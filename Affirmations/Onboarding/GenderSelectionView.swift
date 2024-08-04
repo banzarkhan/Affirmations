@@ -10,6 +10,7 @@ import SwiftUI
 struct GenderSelectionView: View {
     @AppStorage("NeedsOnboarding") var needsOnboarding = true
     @State var selectedGender: String? = nil
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         ZStack {
@@ -34,6 +35,7 @@ struct GenderSelectionView: View {
                 Button("Continue") {
                     UserDefaults.standard.set(selectedGender, forKey: "Gender")
                     needsOnboarding = false
+                    dismiss()
                 }
                 .buttonStyle(OnboardingButtonStyle(isSelected: selectedGender != nil))
                 .disabled(selectedGender == nil)

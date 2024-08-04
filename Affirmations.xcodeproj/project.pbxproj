@@ -11,6 +11,7 @@
 		546A2A572C5F942C009EFA49 /* Affirmations.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 546A2A552C5F942C009EFA49 /* Affirmations.xcdatamodeld */; };
 		546A2A592C5F94FF009EFA49 /* AffirmationsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546A2A582C5F94FF009EFA49 /* AffirmationsStore.swift */; };
 		546A2A5B2C5F960E009EFA49 /* AffirmationsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546A2A5A2C5F960E009EFA49 /* AffirmationsList.swift */; };
+		546A2A5E2C5FABAC009EFA49 /* AffirmationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546A2A5D2C5FABAC009EFA49 /* AffirmationsView.swift */; };
 		54EB613A2C5CF06100EF3611 /* AffirmationsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54EB61392C5CF06100EF3611 /* AffirmationsApp.swift */; };
 		54EB613C2C5CF06100EF3611 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54EB613B2C5CF06100EF3611 /* ContentView.swift */; };
 		54EB613E2C5CF06200EF3611 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54EB613D2C5CF06200EF3611 /* Assets.xcassets */; };
@@ -29,6 +30,7 @@
 		546A2A562C5F942C009EFA49 /* Affirmations.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Affirmations.xcdatamodel; sourceTree = "<group>"; };
 		546A2A582C5F94FF009EFA49 /* AffirmationsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AffirmationsStore.swift; sourceTree = "<group>"; };
 		546A2A5A2C5F960E009EFA49 /* AffirmationsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AffirmationsList.swift; sourceTree = "<group>"; };
+		546A2A5D2C5FABAC009EFA49 /* AffirmationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AffirmationsView.swift; sourceTree = "<group>"; };
 		54EB61362C5CF06100EF3611 /* Affirmations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Affirmations.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		54EB61392C5CF06100EF3611 /* AffirmationsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AffirmationsApp.swift; sourceTree = "<group>"; };
 		54EB613B2C5CF06100EF3611 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 			children = (
 				54EB61392C5CF06100EF3611 /* AffirmationsApp.swift */,
 				54EB613B2C5CF06100EF3611 /* ContentView.swift */,
+				546A2A5D2C5FABAC009EFA49 /* AffirmationsView.swift */,
 				54EB61522C5D3AAB00EF3611 /* SettingsView.swift */,
 				54EB61562C5DF52200EF3611 /* Onboarding */,
 				546A2A5C2C5FAB01009EFA49 /* Persistence */,
@@ -199,6 +202,7 @@
 				546A2A542C5F93EB009EFA49 /* PersistenceManager.swift in Sources */,
 				54EB61532C5D3AAB00EF3611 /* SettingsView.swift in Sources */,
 				54EB613A2C5CF06100EF3611 /* AffirmationsApp.swift in Sources */,
+				546A2A5E2C5FABAC009EFA49 /* AffirmationsView.swift in Sources */,
 				54EB61552C5D40D600EF3611 /* OnboardingView.swift in Sources */,
 				54EB61512C5D377600EF3611 /* GenderSelectionView.swift in Sources */,
 				54EB614D2C5D349B00EF3611 /* OnboardingButtonStyle.swift in Sources */,

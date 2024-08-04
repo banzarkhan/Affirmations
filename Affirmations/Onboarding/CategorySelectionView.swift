@@ -20,13 +20,13 @@ struct CategorySelectionView: View {
                         .multilineTextAlignment(.center)
                     VStack {
                         Button("Love") {
-                            selectedCategory = "love"
+                            selectedCategory = "Love"
                         }
-                        .buttonStyle(SelectButtonStyle(isSelected: selectedCategory == "love"))
+                        .buttonStyle(SelectButtonStyle(isSelected: selectedCategory == "Love"))
                         Button("Friendship") {
-                            selectedCategory = "friendship"
+                            selectedCategory = "Friendship"
                         }
-                        .buttonStyle(SelectButtonStyle(isSelected: selectedCategory == "friendship"))
+                        .buttonStyle(SelectButtonStyle(isSelected: selectedCategory == "Friendship"))
                     }
                 }
                 .padding()
@@ -34,6 +34,9 @@ struct CategorySelectionView: View {
                     Spacer()
                     Button("Continue") {
                         UserDefaults.standard.set(selectedCategory, forKey: "Category")
+                        if let category = UserDefaults.standard.string(forKey: "Category"){
+                            print(category)
+                        }
                         isOpenNextView = true
                     }
                     .buttonStyle(OnboardingButtonStyle(isSelected: selectedCategory != nil))

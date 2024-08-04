@@ -20,8 +20,8 @@ struct AffirmationsApp: App {
     
     var body: some Scene {
         WindowGroup {
-//            ContentView()
-            AffirmationsList()
+            ContentView()
+//            AffirmationsList()
                 .environment(\.managedObjectContext, persistenceManager.container.viewContext)
         }
     }

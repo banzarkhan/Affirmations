@@ -20,11 +20,11 @@ struct BackgroundColorSelectionView: View {
                         .multilineTextAlignment(.center)
                     VStack {
                         Button("Blue"){
-                            selectedBackground = "blue"
+                            selectedBackground = "customBlue"
                         }
                         .buttonStyle(SelectButtonStyle(isSelected: selectedBackground == "blue"))
                         Button("Red"){
-                            selectedBackground = "red"
+                            selectedBackground = "customRed"
                         }
                         .buttonStyle(SelectButtonStyle(isSelected: selectedBackground == "red"))
                     }
