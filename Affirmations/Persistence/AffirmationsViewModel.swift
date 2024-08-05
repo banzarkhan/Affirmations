@@ -7,17 +7,23 @@
 
 import Foundation
 import CoreData
+import SwiftUI
 
 
-class AffirmationsStore: ObservableObject {
+class AffirmationsViewModel: ObservableObject {
     
     @Published var affirmations: [Affirmation] = []
+    @Published var backgroundColor: Color = .blueCustom
+    
+    private var category: String?
     
     init() {
         fetchAffirmations()
     }
     
-    func fetchAffirmations(category: String? = nil) {
+    func fetchAffirmations() {
+        setCategory()
+        
         let request = NSFetchRequest<Affirmation>(entityName: "Affirmation")
         
         if let category = category {
@@ -59,6 +65,29 @@ class AffirmationsStore: ObservableObject {
                 return
             }
             self.fetchAffirmations()
+        }
+    }
+    
+    func setBackgroundColor() {
+        if let colorName = UserDefaults.standard.string(forKey: "BackgroundColor") {
+            self.backgroundColor = getColor(from: colorName)
+        }
+    }
+    
+    private func getColor(from name: String) -> Color {
+        switch name {
+        case "Blue":
+            return .blueCustom
+        case "Red":
+            return .redCustom
+        default:
+            return .clear
+        }
+    }
+    
+    private func setCategory() {
+        if let category = UserDefaults.standard.string(forKey: "Category") {
+            self.category = category
         }
     }
 }

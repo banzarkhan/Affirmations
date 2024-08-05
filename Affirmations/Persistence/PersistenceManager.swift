@@ -46,7 +46,7 @@ struct PersistenceManager {
     }
     
     func loadSampleData() {
-        let affirmationsStore = AffirmationsStore()
+        let affirmationsStore = AffirmationsViewModel()
         
         let loveAffirmations = [
             ("I am worthy of love and deserve to receive love in abundance", "Я достойна любви и заслуживаю получать её в изобилии"),

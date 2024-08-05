@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct BackgroundColorSelectionView: View {
-    @State var selectedBackground: Color = .clear
+    @State var selectedBackground: String = ""
     @State var isSelected = false
     @State var isOpenNextView = false
     
@@ -25,22 +25,21 @@ struct BackgroundColorSelectionView: View {
                         .multilineTextAlignment(.center)
                     VStack {
                         Button("Blue"){
-                            selectedBackground = .blueCustom
                             isSelected = true
                         }
-                        .buttonStyle(SelectButtonStyle(isSelected: selectedBackground == .blueCustom))
+                        .buttonStyle(SelectButtonStyle(isSelected: selectedBackground == "Blue"))
                         Button("Red"){
-                            selectedBackground = .redCustom
+                            selectedBackground = "Red"
                             isSelected = true
                         }
-                        .buttonStyle(SelectButtonStyle(isSelected: selectedBackground == .redCustom))
+                        .buttonStyle(SelectButtonStyle(isSelected: selectedBackground == "Red"))
                     }
                 }
                 .padding()
                 VStack {
                     Spacer()
                     Button("Continue") {
-                        colorData.saveColor(color: selectedBackground)
+                        UserDefaults.standard.set(selectedBackground, forKey: "BackgroundColor")
                         isOpenNextView = true
                     }
                     .buttonStyle(OnboardingButtonStyle(isSelected: isSelected))

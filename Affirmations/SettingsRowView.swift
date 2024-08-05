@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct SettingsRowView: View {
-    @State var rowName: String = "Text"
-    @State var isChosen: Bool = false
+    var rowName: String = "Text"
+    var isChosen: Bool = false
+    var action: () -> Void
     
     var body: some View {
         HStack {
@@ -19,9 +20,13 @@ struct SettingsRowView: View {
                 .labelStyle(.iconOnly)
                 .foregroundColor(isChosen ? .blue: .clear)
         }
+        .contentShape(Rectangle())
+        .onTapGesture {
+            action()
+        }
     }
 }
 
-#Preview {
-    SettingsRowView()
-}
+//#Preview {
+//    SettingsRowView()
+//}

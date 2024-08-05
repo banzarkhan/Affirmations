@@ -10,21 +10,17 @@ import SwiftUI
 struct AffirmationsView: View {
     @State var isSettingsOpen = false
     
-    @State private var selectedCategory = "Love"
-    
     @Environment(\.locale) var locale: Locale
     
-    @StateObject private var viewModel = AffirmationsStore()
-    
-    private var colorData = ColorData()
+    @StateObject private var affirmationsVM = AffirmationsViewModel()
     
     var body: some View {
         NavigationStack {
             ZStack {
-                Color(colorData.loadColor())
+                Color(affirmationsVM.backgroundColor)
                 VStack {
                     ZStack {
-                        Text(viewModel.affirmations[0].english ?? "")
+                        Text(affirmationsVM.affirmations[0].english ?? "")
                             .font(.title)
                             .multilineTextAlignment(.center)
                     }
@@ -46,15 +42,9 @@ struct AffirmationsView: View {
                 }
             }
             .onAppear {
-                if let category = UserDefaults.standard.string(forKey: "Category"){
-                    self.selectedCategory = category
-                }
-                viewModel.fetchAffirmations(category: selectedCategory)
+                affirmationsVM.fetchAffirmations()
+                affirmationsVM.setBackgroundColor()
             }
-            .onChange(of: selectedCategory) { oldCategory, newCategory in
-                viewModel.fetchAffirmations(category: newCategory)
-            }
-            
         }
     }
 }

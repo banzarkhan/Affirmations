@@ -10,16 +10,15 @@ import SwiftUI
 
 class SettingsViewModel: ObservableObject {
     @Published var category: String = ""
-    @Published var backgroundColor: Color = .clear
+    @Published var backgroundColor: String = ""
     @Published var gender: String = ""
     
     private let categoryKey = "Category"
     private let genderKey = "Gender"
-    
-    private var colorData = ColorData()
+    private let backgroundColorKey = "BackgroundColor"
     
     private var userDefaults = UserDefaults.standard
- 
+    
     var categoryList: [String] = ["Love", "Friendship"]
     var backgroundColorList: [String] = ["Blue", "Red"]
     var genderList: [String] = ["Male", "Female"]
@@ -27,14 +26,17 @@ class SettingsViewModel: ObservableObject {
     
     func fetchCurrentSettings() {
         category = userDefaults.string(forKey: categoryKey) ?? "Love"
-        backgroundColor = colorData.loadColor()
+        backgroundColor = userDefaults.string(forKey: backgroundColorKey) ?? "Blue"
         gender = userDefaults.string(forKey: genderKey) ?? "Male"
     }
     
     func saveSettings() {
         userDefaults.set(category, forKey: categoryKey)
-        colorData.saveColor(color: backgroundColor)
+        userDefaults.set(backgroundColor, forKey: backgroundColorKey)
         userDefaults.set(gender, forKey: genderKey)
     }
     
+    func selectCategory(_ category: String) {
+        self.category = category
+    }
 }

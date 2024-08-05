@@ -18,7 +18,9 @@ struct SettingsView: View {
                 List {
                     Section {
                         ForEach(settingsVM.categoryList, id: \.self) { item in
-                            SettingsRowView(rowName: item, isChosen: settingsVM.category == item)
+                            SettingsRowView(rowName: item, isChosen: settingsVM.category == item) {
+                                settingsVM.category = item
+                            }
                         }
                     } header: {
                         Text("Category")
@@ -26,14 +28,18 @@ struct SettingsView: View {
                     
                     Section {
                         ForEach(settingsVM.backgroundColorList, id: \.self) { item in
-                            SettingsRowView(rowName: item)
+                            SettingsRowView(rowName: item, isChosen: settingsVM.backgroundColor == item) {
+                                settingsVM.backgroundColor = item
+                            }
                         }
                     } header: {
                         Text("Background colour")
                     }
                     Section {
                         ForEach(settingsVM.genderList, id: \.self) { item in
-                            SettingsRowView(rowName: item, isChosen: settingsVM.gender == item)
+                            SettingsRowView(rowName: item, isChosen: settingsVM.gender == item){
+                                settingsVM.gender = item
+                            }
                         }
                     } header: {
                         Text("Gender")
@@ -52,6 +58,7 @@ struct SettingsView: View {
             .toolbar {
                 Button("Done") {
                     dismiss()
+                    settingsVM.saveSettings()
                 }
             }
             .onAppear {
