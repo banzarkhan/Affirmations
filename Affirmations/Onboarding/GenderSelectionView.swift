@@ -22,13 +22,13 @@ struct GenderSelectionView: View {
                         .multilineTextAlignment(.center)
                     VStack {
                         Button("Male"){
-                            selectedGender = "male"
+                            selectedGender = "Male"
                         }
-                        .buttonStyle(SelectButtonStyle(isSelected: selectedGender == "male"))
+                        .buttonStyle(SelectButtonStyle(isSelected: selectedGender == "Male"))
                         Button("Female"){
-                            selectedGender = "female"
+                            selectedGender = "Female"
                         }
-                        .buttonStyle(SelectButtonStyle(isSelected: selectedGender == "female"))
+                        .buttonStyle(SelectButtonStyle(isSelected: selectedGender == "Female"))
                     }
                 }
             .padding()

@@ -17,7 +17,6 @@ struct ColorData {
         
         if let components = color.components {
             userDefaults.set(components, forKey: COLOR_KEY)
-            print("Color saved")
         }
     }
     
@@ -30,8 +29,6 @@ struct ColorData {
                           blue: array[2],
                           opacity: array[3]
         )
-        
-        print("Color loaded")
         return color
     }
 }
