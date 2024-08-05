@@ -1,0 +1,23 @@
+/* 
+  Localizable.strings
+  Affirmations
+
+  Created by Ariuna Banzarkhanova on 05/08/24.
+  
+*/
+"What area of your life would you like to improve?" = "Какую область своей жизни вы бы хотели улучшить?";
+"Pick a background colour you like" = "Выберите цвет фона, который вам нравится";
+"What gender best describes you?" = "Какой пол лучше всего вас описывает?";
+"Love" = "Любовь";
+"Friendship" = "Дружба";
+"Blue" = "Синий";
+"Red" = "Красный";
+"Male" = "Мужчина";
+"Female" = "Женщина";
+"Settings" = "Настройки";
+"Done" = "Готово";
+"Category" = "Категория";
+"Background color" = "Цвет фона";
+"Gender" = "Пол";
+"Language" = "Язык";
+"Continue" = "Продолжить";

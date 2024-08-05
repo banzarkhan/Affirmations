@@ -15,14 +15,12 @@ class AffirmationsViewModel: ObservableObject {
     @Published var affirmations: [Affirmation] = []
     @Published var backgroundColor: Color = .blueCustom
     
-    private var category: String?
-    
     init() {
         fetchAffirmations()
     }
     
     func fetchAffirmations() {
-        setCategory()
+        let category = UserDefaults.standard.string(forKey: "Category")
         
         let request = NSFetchRequest<Affirmation>(entityName: "Affirmation")
         
@@ -46,15 +44,15 @@ class AffirmationsViewModel: ObservableObject {
         saveChanges()
     }
     
-    func updateLearner(affirmation: Affirmation) {
+    func updateAffirmation(affirmation: Affirmation) {
         
     }
     
-    func deleteLearner(affirmation: Affirmation) {
+    func deleteAffirmation(affirmation: Affirmation) {
         
     }
     
-    func deleteLearner(offsets: IndexSet) {
+    func deleteAffirmation(offsets: IndexSet) {
         
     }
     
@@ -82,12 +80,6 @@ class AffirmationsViewModel: ObservableObject {
             return .redCustom
         default:
             return .clear
-        }
-    }
-    
-    private func setCategory() {
-        if let category = UserDefaults.standard.string(forKey: "Category") {
-            self.category = category
         }
     }
 }

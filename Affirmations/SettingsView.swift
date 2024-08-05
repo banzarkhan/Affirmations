@@ -18,7 +18,8 @@ struct SettingsView: View {
                 List {
                     Section {
                         ForEach(settingsVM.categoryList, id: \.self) { item in
-                            SettingsRowView(rowName: item, isChosen: settingsVM.category == item) {
+                            let localized = NSLocalizedString(item, comment: "")
+                            SettingsRowView(rowName: localized, isChosen: settingsVM.category == item) {
                                 settingsVM.category = item
                             }
                         }
@@ -28,16 +29,18 @@ struct SettingsView: View {
                     
                     Section {
                         ForEach(settingsVM.backgroundColorList, id: \.self) { item in
-                            SettingsRowView(rowName: item, isChosen: settingsVM.backgroundColor == item) {
+                            let localized = NSLocalizedString(item, comment: "")
+                            SettingsRowView(rowName: localized, isChosen: settingsVM.backgroundColor == item) {
                                 settingsVM.backgroundColor = item
                             }
                         }
                     } header: {
-                        Text("Background colour")
+                        Text("Background color")
                     }
                     Section {
                         ForEach(settingsVM.genderList, id: \.self) { item in
-                            SettingsRowView(rowName: item, isChosen: settingsVM.gender == item){
+                            let localized = NSLocalizedString(item, comment: "")
+                            SettingsRowView(rowName: localized, isChosen: settingsVM.gender == item){
                                 settingsVM.gender = item
                             }
                         }
@@ -46,8 +49,16 @@ struct SettingsView: View {
                     }
                     
                     Section {
-                        ForEach(settingsVM.languageList, id: \.self) { item in
-                            Text(item)
+                        HStack {
+                            Text(settingsVM.currentLanguage)
+                            Spacer()
+                            Label("Open settings", systemImage: "chevron.right")
+                                .labelStyle(.iconOnly)
+                                .foregroundColor(.blue)
+                        }
+                        .contentShape(Rectangle())
+                        .onTapGesture {
+                            settingsVM.openSettings()
                         }
                     } header: {
                         Text("Language")

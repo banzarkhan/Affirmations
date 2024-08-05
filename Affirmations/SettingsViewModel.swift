@@ -12,6 +12,7 @@ class SettingsViewModel: ObservableObject {
     @Published var category: String = ""
     @Published var backgroundColor: String = ""
     @Published var gender: String = ""
+    @Published var currentLanguage = ""
     
     private let categoryKey = "Category"
     private let genderKey = "Gender"
@@ -22,12 +23,13 @@ class SettingsViewModel: ObservableObject {
     var categoryList: [String] = ["Love", "Friendship"]
     var backgroundColorList: [String] = ["Blue", "Red"]
     var genderList: [String] = ["Male", "Female"]
-    var languageList: [String] = ["English", "Russian"]
+    var languageList: [String] = ["English", "Русский"]
     
     func fetchCurrentSettings() {
         category = userDefaults.string(forKey: categoryKey) ?? "Love"
         backgroundColor = userDefaults.string(forKey: backgroundColorKey) ?? "Blue"
         gender = userDefaults.string(forKey: genderKey) ?? "Male"
+        currentLanguage = Locale.current.language.languageCode?.identifier == "en" ? "English" : "Русский"
     }
     
     func saveSettings() {
@@ -36,7 +38,11 @@ class SettingsViewModel: ObservableObject {
         userDefaults.set(gender, forKey: genderKey)
     }
     
-    func selectCategory(_ category: String) {
-        self.category = category
-    }
+    func openSettings() {
+            if let url = URL(string: UIApplication.openSettingsURLString) {
+                if UIApplication.shared.canOpenURL(url) {
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                }
+            }
+        }
 }

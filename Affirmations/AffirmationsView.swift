@@ -10,9 +10,9 @@ import SwiftUI
 struct AffirmationsView: View {
     @State var isSettingsOpen = false
     
-    @Environment(\.locale) var locale: Locale
-    
     @StateObject private var affirmationsVM = AffirmationsViewModel()
+    
+    @State var locale: String = ""
     
     var body: some View {
         NavigationStack {
@@ -20,8 +20,9 @@ struct AffirmationsView: View {
                 Color(affirmationsVM.backgroundColor)
                 VStack {
                     ZStack {
-                        Text(affirmationsVM.affirmations[0].english ?? "")
+                        Text(locale == "English" ? affirmationsVM.affirmations[0].english ?? "" : affirmationsVM.affirmations[0].russian ?? "")
                             .font(.title)
+                            .fontWeight(.semibold)
                             .multilineTextAlignment(.center)
                     }
                 }
@@ -44,6 +45,7 @@ struct AffirmationsView: View {
             .onAppear {
                 affirmationsVM.fetchAffirmations()
                 affirmationsVM.setBackgroundColor()
+                locale = Locale.current.language.languageCode?.identifier == "en" ? "English" : "Русский"
             }
         }
     }
