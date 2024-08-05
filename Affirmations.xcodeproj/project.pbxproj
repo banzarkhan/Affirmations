@@ -11,7 +11,6 @@
 		546A2A572C5F942C009EFA49 /* Affirmations.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 546A2A552C5F942C009EFA49 /* Affirmations.xcdatamodeld */; };
 		546A2A592C5F94FF009EFA49 /* AffirmationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546A2A582C5F94FF009EFA49 /* AffirmationsViewModel.swift */; };
 		546A2A5E2C5FABAC009EFA49 /* AffirmationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546A2A5D2C5FABAC009EFA49 /* AffirmationsView.swift */; };
-		546A2A602C5FC752009EFA49 /* ColorData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546A2A5F2C5FC752009EFA49 /* ColorData.swift */; };
 		546A2A622C60C0AE009EFA49 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546A2A612C60C0AE009EFA49 /* SettingsViewModel.swift */; };
 		546A2A642C60C156009EFA49 /* SettingsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546A2A632C60C156009EFA49 /* SettingsRowView.swift */; };
 		546A2A672C61210E009EFA49 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 546A2A652C61210E009EFA49 /* Localizable.strings */; };
@@ -33,7 +32,6 @@
 		546A2A562C5F942C009EFA49 /* Affirmations.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Affirmations.xcdatamodel; sourceTree = "<group>"; };
 		546A2A582C5F94FF009EFA49 /* AffirmationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AffirmationsViewModel.swift; sourceTree = "<group>"; };
 		546A2A5D2C5FABAC009EFA49 /* AffirmationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AffirmationsView.swift; sourceTree = "<group>"; };
-		546A2A5F2C5FC752009EFA49 /* ColorData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorData.swift; sourceTree = "<group>"; };
 		546A2A612C60C0AE009EFA49 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		546A2A632C60C156009EFA49 /* SettingsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRowView.swift; sourceTree = "<group>"; };
 		546A2A662C61210E009EFA49 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -68,9 +66,27 @@
 			children = (
 				546A2A532C5F93EB009EFA49 /* PersistenceManager.swift */,
 				546A2A552C5F942C009EFA49 /* Affirmations.xcdatamodeld */,
-				546A2A582C5F94FF009EFA49 /* AffirmationsViewModel.swift */,
 			);
 			path = Persistence;
+			sourceTree = "<group>";
+		};
+		546A2A692C61301E009EFA49 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				54EB61562C5DF52200EF3611 /* Onboarding */,
+				546A2A5D2C5FABAC009EFA49 /* AffirmationsView.swift */,
+				54EB61522C5D3AAB00EF3611 /* SettingsView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		546A2A6A2C613065009EFA49 /* View model */ = {
+			isa = PBXGroup;
+			children = (
+				546A2A582C5F94FF009EFA49 /* AffirmationsViewModel.swift */,
+				546A2A612C60C0AE009EFA49 /* SettingsViewModel.swift */,
+			);
+			path = "View model";
 			sourceTree = "<group>";
 		};
 		54EB612D2C5CF06100EF3611 = {
@@ -93,13 +109,9 @@
 			isa = PBXGroup;
 			children = (
 				54EB61392C5CF06100EF3611 /* AffirmationsApp.swift */,
-				546A2A612C60C0AE009EFA49 /* SettingsViewModel.swift */,
 				54EB613B2C5CF06100EF3611 /* ContentView.swift */,
-				546A2A5D2C5FABAC009EFA49 /* AffirmationsView.swift */,
-				54EB61522C5D3AAB00EF3611 /* SettingsView.swift */,
-				546A2A632C60C156009EFA49 /* SettingsRowView.swift */,
-				546A2A5F2C5FC752009EFA49 /* ColorData.swift */,
-				54EB61562C5DF52200EF3611 /* Onboarding */,
+				546A2A692C61301E009EFA49 /* View */,
+				546A2A6A2C613065009EFA49 /* View model */,
 				546A2A5C2C5FAB01009EFA49 /* Persistence */,
 				54EB61492C5D18A200EF3611 /* Helpers */,
 				54EB613D2C5CF06200EF3611 /* Assets.xcassets */,
@@ -120,6 +132,7 @@
 		54EB61492C5D18A200EF3611 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				546A2A632C60C156009EFA49 /* SettingsRowView.swift */,
 				54EB614A2C5D18C100EF3611 /* SelectButtonStyle.swift */,
 				54EB614C2C5D349B00EF3611 /* OnboardingButtonStyle.swift */,
 			);
@@ -210,7 +223,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				54EB613C2C5CF06100EF3611 /* ContentView.swift in Sources */,
-				546A2A602C5FC752009EFA49 /* ColorData.swift in Sources */,
 				546A2A542C5F93EB009EFA49 /* PersistenceManager.swift in Sources */,
 				54EB61532C5D3AAB00EF3611 /* SettingsView.swift in Sources */,
 				54EB613A2C5CF06100EF3611 /* AffirmationsApp.swift in Sources */,
