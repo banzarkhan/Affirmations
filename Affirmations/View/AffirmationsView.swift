@@ -18,17 +18,20 @@ struct AffirmationsView: View {
         NavigationStack {
             ZStack {
                 Color(affirmationsVM.backgroundColor)
-                VStack {
-                    ZStack {
-                        Text(locale == "English" ? affirmationsVM.affirmations[0].english ?? "" : affirmationsVM.affirmations[0].russian ?? "")
-                            .font(.title)
-                            .fontWeight(.semibold)
-                            .multilineTextAlignment(.center)
+                    .ignoresSafeArea()
+                ScrollView(.vertical) {
+                    VStack {
+                        ForEach(affirmationsVM.affirmations, id: \.self){ affirmation in
+                            AffirmationView(affirmation: locale == "English" ? affirmation.english ?? "" : affirmation.russian ?? "")
+                                .containerRelativeFrame(.vertical)
+                        }
                     }
+                    .scrollTargetLayout()
+                    .padding()
                 }
-                .padding()
+                .ignoresSafeArea()
+                .scrollTargetBehavior(.paging)
             }
-            .ignoresSafeArea()
             .toolbar {
                 Button {
                     isSettingsOpen = true
@@ -47,6 +50,7 @@ struct AffirmationsView: View {
                 affirmationsVM.setBackgroundColor()
                 locale = Locale.current.language.languageCode?.identifier == "en" ? "English" : "Русский"
             }
+            .toolbarBackground(Color(affirmationsVM.backgroundColor), for: .navigationBar)
         }
     }
 }
