@@ -46,8 +46,8 @@ struct AffirmationsView: View {
                 }
             }
             .onAppear {
-                affirmationsVM.fetchAffirmations()
                 affirmationsVM.setBackgroundColor()
+                affirmationsVM.fetchAffirmations()
                 locale = Locale.current.language.languageCode?.identifier == "en" ? "English" : "Русский"
             }
             .toolbarBackground(Color(affirmationsVM.backgroundColor), for: .navigationBar)

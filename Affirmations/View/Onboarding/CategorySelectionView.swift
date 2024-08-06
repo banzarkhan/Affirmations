@@ -35,9 +35,6 @@ struct CategorySelectionView: View {
                     Spacer()
                     Button("Continue") {
                         UserDefaults.standard.set(selectedCategory, forKey: "Category")
-                        if let category = UserDefaults.standard.string(forKey: "Category"){
-                            print(category)
-                        }
                         isOpenNextView = true
                     }
                     .buttonStyle(OnboardingButtonStyle(isSelected: selectedCategory != nil))

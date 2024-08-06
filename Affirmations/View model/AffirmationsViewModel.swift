@@ -20,18 +20,24 @@ class AffirmationsViewModel: ObservableObject {
     }
     
     func fetchAffirmations() {
-        let category = UserDefaults.standard.string(forKey: "Category")
-        
-        let request = NSFetchRequest<Affirmation>(entityName: "Affirmation")
-        
-        if let category = category {
-            request.predicate = NSPredicate(format: "category == %@", category)
-        }
-        
-        do {
-            affirmations = try PersistenceManager.shared.container.viewContext.fetch(request)
-        } catch {
-            print("Error fetching. \(error)")
+        DispatchQueue.global(qos: .background).async {
+            let category = UserDefaults.standard.string(forKey: "Category")
+            
+            let request = NSFetchRequest<Affirmation>(entityName: "Affirmation")
+            
+            if let category = category {
+                request.predicate = NSPredicate(format: "category == %@", category)
+            }
+            
+            do {
+                let affirmations = try PersistenceManager.shared.container.viewContext.fetch(request)
+                
+                DispatchQueue.main.async {
+                    self.affirmations = affirmations
+                }
+            } catch {
+                print("Error fetching. \(error)")
+            }
         }
     }
     

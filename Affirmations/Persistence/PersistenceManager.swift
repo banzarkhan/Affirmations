@@ -24,7 +24,11 @@ struct PersistenceManager {
     init(inMemory: Bool = false) {
         container = NSPersistentContainer(name: "Affirmations")
         if inMemory {
-            container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
+            if let firstStoreDescription = container.persistentStoreDescriptions.first {
+                firstStoreDescription.url = URL(fileURLWithPath: "/dev/null")
+            } else {
+                fatalError("Persistent store descriptions are not available")
+            }
         }
         container.viewContext.automaticallyMergesChangesFromParent = true
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
