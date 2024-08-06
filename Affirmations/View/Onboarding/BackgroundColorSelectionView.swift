@@ -12,8 +12,6 @@ struct BackgroundColorSelectionView: View {
     @State var isSelected = false
     @State var isOpenNextView = false
     
-    private var colorData = ColorData()
-    
     var body: some View {
         NavigationStack {
             ZStack {
